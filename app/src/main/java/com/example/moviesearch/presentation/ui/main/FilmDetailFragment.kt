@@ -62,12 +62,19 @@ class FilmDetailFragment : Fragment() {
         val root = binding.root
         parseArgs()
         getData()
+        setupViewListeners()
         return root
     }
 
     private fun parseArgs() {
         filmId = arguments?.getInt(EXTRA_ID) ?: 0
         mode = arguments?.getBoolean(EXTRA_MODE) ?: false
+    }
+
+    private fun setupViewListeners() {
+        binding.buttonArrow.setOnClickListener {
+            requireActivity().finish()
+        }
     }
 
     private fun getData() {
